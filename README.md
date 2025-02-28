@@ -3,7 +3,7 @@ Welcome To My BlogPost Project!
 In this project you will be able to create, visualize, and comment on the post you create.
 
 How to Run This Project:
-- install the requirements.txt
+- pip install -r requirements.txt
 
 After installing, run these commands step by step:
 - python manage.py makemigrations
