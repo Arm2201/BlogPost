@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Comment Form{% endblock %}
+
+{% block content %}
+    <h1>Posts</h1>
+    <p>Total Posts: {{ total_posts }}</p>
+
+    {% if posts %}
+        <div class="post-list">
+            {% for post in posts %}
+                <div class="post">
+                    <a href="{% url 'post_detail' post.id %}#comments" class="post-link">
+                        {% if post.thumbnail %}
+                            <div class="post-thumbnail-container">
+                                <img src="{{ post.thumbnail.url }}" alt="{{ post.title }}" class="post-thumbnail">
+                            </div>
+                        {% endif %}
+                        <h2 class="post-title">{{ post.title }}</h2>
+                    </a>
+                    <!-- Removed post.body so "body..." will not appear -->
+                    <a href="{% url 'post_detail' post.id %}" class="read-more">Read More →</a>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No posts available.</p>
+    {% endif %}
+
+{% endblock %}
